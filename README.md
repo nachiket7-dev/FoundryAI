@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dashboard App
 
-## Getting Started
+## Overview
+This is a simple dashboard application built with Next.js (latest stable version) and Tailwind CSS. It features Google OAuth authentication using NextAuth.js, protected routes, and a pizza orders page displaying mock data in a responsive table.
 
-First, run the development server:
+## Features
+- Google OAuth sign-in and sign-out
+- Protected dashboard page with personalized welcome message
+- Protected pizza orders page with mock data table and status badges
+- Responsive UI with Tailwind CSS
+- Navigation bar with links and logout button
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Setup and Running Locally
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Prerequisites
+- Node.js (v16 or later)
+- npm
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Installation
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd dashboard-app
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-## Learn More
+3. Create a `.env.local` file in the root of the project with the following environment variables:
+   ```
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   NEXTAUTH_SECRET=your-nextauth-secret
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+   - To obtain Google OAuth credentials, create a project in the [Google Cloud Console](https://console.cloud.google.com/), enable OAuth consent screen, and create OAuth 2.0 Client IDs for Web application.
+   - `NEXTAUTH_SECRET` can be any random string. You can generate one using `openssl rand -base64 32`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
+   ```
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+## Deployment
+The app can be deployed on Vercel or Railway. Ensure environment variables are set in the deployment platform.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Assumptions and Challenges
+- No backend database is used; pizza orders are hardcoded mock data.
+- Authentication is handled entirely by NextAuth.js with Google OAuth.
+- Basic error handling and loading states are implemented.
+- UI is designed to be clean and responsive using Tailwind CSS.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Third-party Libraries
+- Next.js
+- NextAuth.js
+- Tailwind CSS
+# FoundryAI
